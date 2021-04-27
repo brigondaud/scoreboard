@@ -1,0 +1,11 @@
+.env
+.env.example
+.idea
+.gitignore
+.gitattributes
+.git
+docker-compose.yml
+start.sh
+build
+app/build
+app/src/test

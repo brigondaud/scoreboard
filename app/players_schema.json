@@ -1,0 +1,50 @@
+{
+  "TableName": "players",
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "type",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "pseudo",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "score",
+      "AttributeType": "N"
+    }
+  ],
+  "KeySchema": [
+    {
+      "AttributeName": "type",
+      "KeyType": "HASH"
+    },
+    {
+      "AttributeName": "pseudo",
+      "KeyType": "RANGE"
+    }
+  ],
+  "LocalSecondaryIndexes": [
+    {
+      "IndexName": "score_index",
+      "KeySchema": [
+        {
+          "AttributeName": "type",
+          "KeyType": "HASH"
+        },
+        {
+          "AttributeName": "score",
+          "KeyType": "RANGE"
+        }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      }
+    }
+  ],
+  "BillingMode": "PROVISIONED",
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 20,
+    "WriteCapacityUnits": 10
+  }
+}
